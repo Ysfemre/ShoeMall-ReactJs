@@ -1,0 +1,210 @@
+.fav-page-container {
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 120px 20px 60px 20px; /* Header payı */
+  font-family: sans-serif;
+  min-height: 80vh;
+}
+
+.fav-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #111;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+/* --- BOŞ FAVORİ EKRANI --- */
+.empty-fav {
+  text-align: center;
+  padding: 80px 0;
+  color: #888;
+}
+
+.empty-fav i {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.empty-fav p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.back-home-btn {
+  background-color: #111;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.back-home-btn:hover {
+  opacity: 0.8;
+}
+
+/* --- LİSTE GÖRÜNÜMÜ (ALT ALTA) --- */
+.fav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center; /* Dikey ortala */
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fav-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-color: #ddd;
+}
+
+/* RESİM KUTUSU */
+.fav-image {
+  width: 120px;
+  height: 120px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  flex-shrink: 0; /* Küçülmesin */
+}
+
+.fav-image img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* BİLGİ ALANI */
+.fav-info {
+  flex: 1; /* Ortadaki boşluğu kapla */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fav-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+}
+
+.fav-name:hover {
+  text-decoration: underline;
+}
+
+.fav-desc {
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 80%; /* Yazı çok uzamasın */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-rating {
+  font-size: 0.85rem;
+  color: #111;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.fav-rating i {
+  color: #f59e0b;
+  font-size: 0.8rem;
+}
+
+.fav-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111;
+  margin-top: 5px;
+}
+
+/* BUTONLAR */
+.fav-actions {
+  display: flex;
+  flex-direction: column; /* Butonları alt alta diz */
+  gap: 10px;
+  align-items: flex-end;
+  min-width: 140px;
+}
+
+.fav-add-btn {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.fav-add-btn:hover {
+  opacity: 0.8;
+}
+
+.fav-remove-btn {
+  background: white;
+  border: 1px solid #ddd;
+  color: #ef4444; /* Kırmızı Kalp */
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.fav-remove-btn:hover {
+  background-color: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+/* --- RESPONSIVE (MOBİL) --- */
+@media (max-width: 768px) {
+  .fav-item {
+    flex-direction: column; /* Alt alta diz */
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .fav-image {
+    margin: 0 0 15px 0;
+    width: 150px;
+    height: 150px;
+  }
+
+  .fav-info {
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .fav-actions {
+    flex-direction: row; /* Mobilde butonlar yan yana olsun */
+    width: 100%;
+  }
+}

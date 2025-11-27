@@ -1,0 +1,148 @@
+/* --- GENEL AYARLAR (PC) --- */
+.HeaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Logo sola, ikonlar sağa gider */
+  align-items: center;
+  padding: 0.8rem 5%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Mobilde aşağı kaymaya izin ver */
+  gap: 15px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff5e00;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ARAMA ÇUBUĞU */
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  flex: 1; /* Esnek genişlik */
+  max-width: 600px;
+  min-width: 250px;
+  margin: 0 20px; /* PC'de yanlardan boşluk */
+}
+
+.search i {
+  color: #888;
+  margin-right: 10px;
+}
+
+.search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.search:focus-within {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+/* İKONLAR */
+.user-actions {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+  color: #333;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.user-actions div {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.user-actions div:hover {
+  color: #ff5e00;
+}
+
+/* SEPET ROZETİ */
+.cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); } 80% { transform: scale(1.2); } 100% { transform: scale(1); }
+}
+
+/* --- MEDYA SORGULARI (RESPONSIVE) --- */
+
+/* Tablet Ayarı */
+@media (max-width: 900px) {
+  .HeaderContainer {
+     padding: 0.8rem 3%;
+  }
+  .search {
+      margin: 0 10px;
+  }
+}
+
+/* TELEFON AYARI  */
+@media (max-width: 768px) {
+  .HeaderContainer {
+    padding: 1rem 1.5rem; /* Kenar boşlukları */
+    justify-content: space-between; /* Biri sağa biri sola */
+    align-content: center;
+  }
+
+  /* Logo Sol Tarafta (Sıra 1) */
+  .logo {
+    order: 1;
+    margin: 0; /* Marginleri sıfırla */
+  }
+  
+  /* İkonlar Sağ Tarafta (Sıra 1) */
+  .user-actions {
+    order: 2;
+    gap: 1.2rem;
+    margin: 0;
+  }
+
+  /* Arama Çubuğu Alt Satıra (Sıra 2) */
+  .search {
+    order: 3;
+    width: 100%; /* Tam genişlik */
+    max-width: none; /* Sınırlamayı kaldır */
+    margin: 10px 0 0 0; /* Üsttekilerle arasına boşluk koy */
+    box-sizing: border-box; /* Padding taşmasın */
+  }
+}

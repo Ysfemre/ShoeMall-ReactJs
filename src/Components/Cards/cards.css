@@ -1,0 +1,253 @@
+/* --- GENEL CONTAINER AYARLARI --- */
+.CardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* PC'de 4'lü dizilim */
+  gap: 24px; /* Kartlar arası boşluk */
+  /* Header'ın altında kalmaması için üstten boşluk */
+  padding: 10px 5% 40px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  /* ✨ İŞTE ÇÖZÜM BURADA ✨ */
+  /* Tüm kartları grid hücresinin EN ÜSTÜNE hizala */
+  align-items: start;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;             /* Başlangıçta görünmez olsun */
+    transform: translateY(20px); /* 20px aşağıda başlasın */
+  }
+  to {
+    opacity: 1;             /* Tam görünür olsun */
+    transform: translateY(0);    /* Orijinal yerine gelsin */
+  }
+}
+/* --- KART TASARIMI (Modern & Temiz) --- */
+.Card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* Çok silik gri çerçeve */
+  border-radius: 12px; /* Hafif yuvarlatılmış köşeler */
+  overflow: hidden; /* Resim taşarsa gizle */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  /* ✨ BUNU DA EKLE ✨ */
+  /* Kartın kendi başına bir margini olmasın */
+  margin: 0;
+  /* İçerik az olsa bile kartlar aynı boyda görünsün */
+  height: 100%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Hover Efekti: PC'de üzerine gelince gölge yapsın */
+.Card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+/* --- RESİM ALANI --- */
+.ImageContainer {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Sabit bir yükseklik verelim, daha garanti olsun */
+  background-color: #f9fafb; /* Çok açık gri fon */
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Image img {
+  width: auto; /* Genişlik otomatik */
+  height: 100%; /* Yükseklik kutuya uysun */
+  max-width: 100%; /* Taşma olmasın */
+  object-fit: contain; /* Resmi bozmadan sığdır */
+  mix-blend-mode: multiply; /* Arka planı eritir */
+  transition: transform 0.3s ease;
+}
+
+.Card:hover .Image img {
+  transform: scale(1.08); /* Hafif zoom efekti */
+}
+
+/* --- İKONLAR --- */
+.ImageTopIcon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.Cargo {
+  background: rgba(255, 255, 255, 0.9);
+  color: #10b981eb; /* Canlı yeşil */
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  height: 25px;
+}
+
+.fav-icon i {
+  /* 1. KUTUYU KARE YAP (Tam yuvarlak olması için şart) */
+  width: 40px;
+  height: 40px;
+
+  /* 2. İKONU MERKEZLE (Flexbox ile) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 3. ŞEKLİ YUVARLA */
+  border-radius: 50%;
+
+  /* Diğer makyajlar */
+  background: #ffffff; /* Arkaplan beyaz */
+  color: #333; /* İkon rengi koyu gri */
+  font-size: 1.1rem; /* Kalbin boyutu */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  /* Padding'i SİLİYORUZ, çünkü width/height verdik */
+  padding: 0;
+}
+
+/* Hover olunca efekt */
+.fav-icon i:hover {
+  background: #ff8080; /* Kırmızımsı */
+  color: white;
+  transform: scale(1.1);
+}
+
+/* --- İÇERİK DETAYLARI --- */
+/* Detayların olduğu kısım kartın geri kalanını doldursun */
+.Product-Detail-Container {
+  padding: 12px 12px 0 12px;
+  flex-grow: 1; /* İçerik azsa bile bu alan esnesin */
+}
+
+.Product-Name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+  /* İsim uzunsa tek satıra sığdırıp ... koyar */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Product-Detail {
+  font-size: 0.85rem;
+  color: #6b7280;
+  /* Detayı da tek satırda tutalım, sade görünsün */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- PUANLAMA --- */
+.Point-Container {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Point {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.Point i {
+  color: #f59e0b; /* Turuncu yıldız */
+  font-size: 0.7rem;
+}
+
+.Comment {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* --- FİYAT VE BUTON --- */
+.Cart-and-Price-Container {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f3f4f6;
+  background: #fff; /* Alt kısım net görünsün */
+}
+
+.Price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.AddCart-btn {
+  background-color: #111827; 
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.AddCart-btn:hover {
+  background-color: #374151; /* Koyu gri */
+}
+
+/* =========================================
+   RESPONSIVE (MEDYA SORGULARI)
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .CardContainer {
+    grid-template-columns: repeat(2, 1fr); /* Yan yana 2 tane olsun */
+    padding: 100px 20px 40px 20px; /* Kenar boşluklarını ayarladık */
+    gap: 20px;
+  }
+
+  .ImageContainer {
+    height: auto; /* Sabit 250px'i kaldır */
+    aspect-ratio: 4 / 3; /* Kutunun eni neyse, boyu onun 3/4'ü olsun */
+    padding: 10px; /* İç boşluğu azalt ki resim büyüsün */
+  }
+
+  .Image img {
+    transform: scale(1.05); /* Resmi %5 büyüt, kutuyu doldursun */
+  }
+}
+
+/* 480px altı (En Küçük Telefonlar) */
+@media (max-width: 480px) {
+  .CardContainer {
+    grid-template-columns: 1fr; /* Tek sütuna düş */
+    gap: 25px;
+  }
+  
+  /* Mobilde resim alanı biraz daha kareye yakın olsun */
+  .ImageContainer {
+    aspect-ratio: 4 / 3.5; 
+  }
+}

@@ -1,0 +1,27 @@
+/* 1. Premium Font (Outfit: Modern ve şık) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+/* 2. Renk Paleti ve Değişkenler */
+:root {
+  --primary-color: #0a0a0a;    /* Neredeyse siyah, çok asil */
+  --bg-color: #ffffff;         /* Saf beyaz arka plan */
+  --accent-color: #2563eb;     /* Vurgu rengi (Örn: Mavi) */
+  --gray-light: #f4f5f7;       /* Çok açık gri (Arama çubuğu vb. için) */
+  --gray-medium: #9ca3af;      /* Orta gri (Placeholder metni için) */
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.05); /* Çok hafif gölge */
+  --shadow-premium: 0 4px 20px -2px rgba(0,0,0,0.08); /* Premium gölge */
+}
+
+/* 3. Temel Sıfırlama */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 100px;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased; /* Yazıları pürüzsüzleştirir */
+}
